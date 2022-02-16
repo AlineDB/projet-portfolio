@@ -2,6 +2,7 @@
 
 !.gitignore
 !readme.md
+!database.sql
 
 !/wp-content
 /wp-content/*
