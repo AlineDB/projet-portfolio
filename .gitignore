@@ -1,0 +1,10 @@
+/*
+
+!.gitignore
+!readme.md
+
+!/wp-content
+/wp-content/*
+!/wp-content/themes
+/wp-content/themes/*
+!/wp-content/themes/portefolio_theme
