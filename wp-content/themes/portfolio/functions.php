@@ -18,3 +18,15 @@ register_post_type('books', [
     'menu_icon' => 'dashicons-book',
     'public' => true
 ]);
+
+//enregistrer un custom post pour mes projets
+register_post_type('Projets', [
+    'label' => 'Projets',
+    'labels' => [
+        'name' => 'Mes projets',
+    ],
+    'description' => 'Mes projets d\'études en Infographie',
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-open-folder',
+    'public' => true,
+]);
