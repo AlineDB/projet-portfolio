@@ -27,6 +27,24 @@
             <?php endwhile; else: ?>
             <!-- Pas d'articles à afficher -->
             <?php endif; ?>
+
+            <section class="layout__projects projects">
+                <h2 class="projects__title">
+                    Mes derniers projets
+                </h2>
+                <div class="projects__container">
+                    <!-- dévut de boucle -->
+                    <article class="project">
+                        <a href="#" class="project__link">Lire l'article lié au projet "Titre"</a>
+                        <div class="project__card">
+                            <header class="project__head">
+                                <p class="project__date" >Le <time datetime="" class="project__time"></time> </p>
+                            </header>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
         </div>
     </section>
 </main>

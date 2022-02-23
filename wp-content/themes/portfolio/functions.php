@@ -29,4 +29,5 @@ register_post_type('Projets', [
     'menu_position' => 5,
     'menu_icon' => 'dashicons-open-folder',
     'public' => true,
+    'supports' => ['thumbnail', 'editor', 'title'],
 ]);
