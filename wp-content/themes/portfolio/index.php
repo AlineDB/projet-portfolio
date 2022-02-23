@@ -33,16 +33,31 @@
                     Mes derniers projets
                 </h2>
                 <div class="projects__container">
-                    <!-- dévut de boucle -->
+                    <!-- boucle qui prend un objet WP query pour faire une requete WP avec comme arguments de tri le post type, la date en desc et n'en affiche que 3 -->
+                    <?php $projects = new WP_Query([
+                            'post_type' => 'Projets',
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                             'post_per_page' => 3,
+                    ]); ?>
+                    <!-- début de boucle -->
+                    <?php if($projects->have_posts()): while($projects->have_posts()): $projects->the_post(); ?>
                     <article class="project">
-                        <a href="#" class="project__link">Lire l'article lié au projet "Titre"</a>
+                        <a href="#" class="project__link">Lire l'article lié au projet "<?= get_the_title(); ?>>"</a>
                         <div class="project__card">
                             <header class="project__head">
-                                <p class="project__date" >Le <time datetime="" class="project__time"></time> </p>
+                                <h3 class="project__title"><?= get_the_title(); ?></h3>
+                                <p class="project__date" >Le <?= get_the_date('c'); ?>"><?= get_the_date(); ?> <time datetime="" class="project__time"></time> </p>
                             </header>
+                            <figure class="project__fig">
+                                <img src="#" alt="" class="project_thumb"/>
+                                <?= get_the_post_thumbnail(null, 'thumbnail', ['class' => 'post__thumb']); ?>
+                            </figure>
                         </div>
                     </article>
-
+                    <?php endwhile; else: ?>
+                    <p class="">Il n'y a pas de projet à afficher</p>
+                    <?php endif; ?>
                 </div>
             </section>
         </div>
