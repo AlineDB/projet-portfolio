@@ -30,6 +30,7 @@ register_post_type('Projets', [
     'menu_icon' => 'dashicons-open-folder',
     'public' => true,
     'supports' => ['thumbnail', 'editor', 'title'],
+    'rewrite' => ['slug' => 'projets'],
 ]);
 
 //récupérer les projects via la requête Wordpress
