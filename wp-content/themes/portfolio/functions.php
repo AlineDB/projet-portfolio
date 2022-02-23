@@ -31,3 +31,19 @@ register_post_type('Projets', [
     'public' => true,
     'supports' => ['thumbnail', 'editor', 'title'],
 ]);
+
+//récupérer les projects via la requête Wordpress
+
+function dw_get_projects($count = 20){
+    //instancier l'objet WP_query
+    $projects = new WP_Query([
+        'post_type' => 'Projets',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_per_page' => $count,
+    ]);
+
+    //retourner l'objet WP_Query
+    return $projects;
+
+}

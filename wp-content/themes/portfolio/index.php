@@ -33,25 +33,23 @@
                     Mes derniers projets
                 </h2>
                 <div class="projects__container">
-                    <!-- boucle qui prend un objet WP query pour faire une requete WP avec comme arguments de tri le post type, la date en desc et n'en affiche que 3 -->
-                    <?php $projects = new WP_Query([
-                            'post_type' => 'Projets',
-                            'orderby' => 'date',
-                            'order' => 'DESC',
-                             'post_per_page' => 3,
-                    ]); ?>
+                    <!-- fonction boucle qui prend un objet WP query pour faire une requete WP avec comme arguments de tri le post type, la date en desc et n'en affiche que 3 -->
+                    <?php $projects = dw_get_projects(3);  ?>
                     <!-- début de boucle -->
                     <?php if($projects->have_posts()): while($projects->have_posts()): $projects->the_post(); ?>
                     <article class="project">
-                        <a href="#" class="project__link">Lire l'article lié au projet "<?= get_the_title(); ?>>"</a>
+                        <a href="#" class="project__link">Lire l'article lié au projet "<?= get_the_title(); ?>"</a>
                         <div class="project__card">
                             <header class="project__head">
                                 <h3 class="project__title"><?= get_the_title(); ?></h3>
-                                <p class="project__date" >Le <?= get_the_date('c'); ?>"><?= get_the_date(); ?> <time datetime="" class="project__time"></time> </p>
+                                <p class="project__date" <?= get_the_date('c'); ?>><time datetime="" class="project__time">
+                                        <?= get_the_date(); ?>
+                                     <!--   <?= get_field('project_date', false, false);  ?> -->
+                                    </time> </p>
                             </header>
                             <figure class="project__fig">
-                                <img src="#" alt="" class="project_thumb"/>
-                                <?= get_the_post_thumbnail(null, 'thumbnail', ['class' => 'post__thumb']); ?>
+                                <img src="#" alt="" class="project__thumb"/>
+                                <?= get_the_post_thumbnail(null, 'thumbnail', ['class' => 'project__thumb']); ?>
                             </figure>
                         </div>
                     </article>
